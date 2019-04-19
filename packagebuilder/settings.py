@@ -17,7 +17,13 @@ PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
+SECRET_KEY = "C:\openssl\bin\server.key"
+||||||| merged common ancestors
+SECRET_KEY = os.environ['SECRET_KEY']
+=======
 SECRET_KEY = C:\openssl\bin\server.key
+>>>>>>> 6ea2a2e08f7b6e7f6a1ced9b0bbb135f8d86bd64
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -35,6 +41,8 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = (
+    'whitenoise.runserver_nostatic',
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +54,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,20 +105,21 @@ TEMPLATE_DIRS = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-SALESFORCE_CONSUMER_KEY = os.environ['SALESFORCE_CONSUMER_KEY']
-SALESFORCE_CONSUMER_SECRET = os.environ['SALESFORCE_CONSUMER_SECRET']
+SALESFORCE_CONSUMER_KEY = "3MVG9T46ZAw5GTfX7fDA_QHQ_BkF5Ar.GBmX3.8McSES.XZ4v5BPdBFDsBXFzb.G_0in4rRsE9jDzkx_2S_xK"
+SALESFORCE_CONSUMER_SECRET = "D5CC11FE1AB2D6D54800CC8C1DB60962CEBA4B989214E67E18E07C66B9C301DC"
 SALESFORCE_REDIRECT_URI = 'https://packagebuilder.herokuapp.com/oauth_response'
-SALESFORCE_API_VERSION = int(os.environ['SALESFORCE_API_VERSION'])
+SALESFORCE_API_VERSION = 45
+
 
 SALESFORCE_REST_URL = '/services/data/v%d.0/' % SALESFORCE_API_VERSION
 
@@ -146,3 +156,4 @@ LOGGING = {
         },
     }
 }
+
