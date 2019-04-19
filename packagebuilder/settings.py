@@ -17,7 +17,13 @@ PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = "C:\openssl\bin\server.key"
+||||||| merged common ancestors
+SECRET_KEY = os.environ['SECRET_KEY']
+=======
+SECRET_KEY = C:\openssl\bin\server.key
+>>>>>>> 6ea2a2e08f7b6e7f6a1ced9b0bbb135f8d86bd64
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
