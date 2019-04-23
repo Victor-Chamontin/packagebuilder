@@ -114,6 +114,7 @@ SALESFORCE_REDIRECT_URI = 'https://floating-plateau-12351.herokuapp.com/oauth_re
 SALESFORCE_API_VERSION = 45
 
 
+
 SALESFORCE_REST_URL = '/services/data/v%d.0/' % SALESFORCE_API_VERSION
 
 # A sample logging configuration. The only tangible logging
