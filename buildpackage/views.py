@@ -20,7 +20,6 @@ import json
 import requests
 import datetime
 import uuid
-import logging
 
 def index(request):
     
@@ -103,7 +102,6 @@ def oauth_response(request):
             org_id = login_form.cleaned_data['org_id']
             package_option = login_form.cleaned_data['package_option']
             
-            logger.info("test de boucle")
 
             if 'logout' in request.POST:
                 r = requests.post(instance_url + '/services/oauth2/revoke', headers={'content-type':'application/x-www-form-urlencoded'}, data={'token': access_token})
