@@ -13,12 +13,14 @@ from suds.client import Client
 from lxml import etree
 from time import sleep
 
+
 from . import utils
 
 import json
 import requests
 import datetime
 import uuid
+import logging
 
 def index(request):
     
